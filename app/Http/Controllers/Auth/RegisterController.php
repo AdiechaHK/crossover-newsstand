@@ -134,7 +134,7 @@ class RegisterController extends Controller
             $model = $regReq->first();
         }
 
-        Mail::to("adiechahari@gmail.com")->send(new RegistrationRequest(compact('model', 'exist')));
+        Mail::to($model->email)->send(new RegistrationRequest(compact('model', 'exist')));
         
     }
 
