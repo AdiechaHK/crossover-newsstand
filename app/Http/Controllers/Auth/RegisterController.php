@@ -81,7 +81,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name'  => 'required|max:255',
-            'email' => 'required|email|max:255|unique:registration_requests'
+            'email' => 'required|email|max:255'
         ]);
     }
 
@@ -112,6 +112,7 @@ class RegisterController extends Controller
         // Validation 
         $validate = $this->validate_registration_request($request->all());
         if($validate->fails()) {
+            dd($validate->errors());
             return redirect('/register_request')->withErrors($validate)->withInput();
         }
 
@@ -135,6 +136,7 @@ class RegisterController extends Controller
         }
 
         Mail::to($model->email)->send(new RegistrationRequest(compact('model', 'exist')));
+        return View('auth/confirm')->with(compact('model', 'exist'));
         
     }
 

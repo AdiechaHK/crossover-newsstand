@@ -19,6 +19,7 @@ Auth::routes();
 Route::get('/register_request', 'Auth\RegisterController@register_request_view');
 Route::post('/register_request', 'Auth\RegisterController@register_request');
 Route::get('/register/{hash}', 'Auth\RegisterController@register_view');
+Route::get('/auth/resend', 'Auth\RegisterController@register_request');
 
 Route::get('/my_news', 'NewsController@user_news');
 Route::resource('/news', 'NewsController');
