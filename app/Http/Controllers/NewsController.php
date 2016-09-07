@@ -97,8 +97,9 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        News::destroy($id);
+        return redirect('/news')->with('notification', "Deleted successfully.");
     }
 }

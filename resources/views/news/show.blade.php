@@ -15,7 +15,6 @@
 			</div>
 			
 			<div class="col-md-4">
-
 				@foreach($top_news as $news_list)
 					<a href="/news/{{ $news_list->id }}" class="co-no-link">
 						<div class="col-md-12 clearfix box-related">

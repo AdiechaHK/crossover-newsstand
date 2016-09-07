@@ -60,7 +60,7 @@ button.co-btn{
 	color: white;
 	transition: 0.5s;
 	border-radius: 3px;
-	padding: 6px 18px;
+	padding: 5px 18px;
 	outline: none;
 	display: inline-block;
 }
@@ -94,7 +94,7 @@ button.co-btn{
 	text-decoration: none;
 }
 .co-readmore{
-	padding: 7px 10px;
+	padding: 6px 10px;
 	transition: 0.3s;
 }
 .co-readmore:hover {
@@ -103,6 +103,14 @@ button.co-btn{
 	background: #333;
 	color: white;
 	border-radius: 3px;
+}
+.co-btn-danger {
+	background: #8B0000;
+}
+.co-btn-danger:hover {
+	background: transparent;
+	color: #8B0000;
+	border-color: #8B0000;	
 }
 .co-underline {
 	border-bottom: 1px solid #999;
