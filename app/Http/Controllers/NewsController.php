@@ -64,7 +64,8 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        return View("news/show")->with(['news' => News::find($id)]);
+        $top_news = News::where('id', '!=', $id)->take(5)->get();
+        return View("news/show")->with(['news' => News::find($id), 'top_news' => $top_news]);
     }
 
     /**
