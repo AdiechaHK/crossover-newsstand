@@ -31,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -120,6 +120,7 @@ class RegisterController extends Controller
         $regReq = RegReqModel::where([
             'email' => $request->email
         ])->get();
+
         if($regReq->count() == 0) {
 
             // If not exist, then creating new request
@@ -135,7 +136,10 @@ class RegisterController extends Controller
             $model = $regReq->first();
         }
 
+        // Sending email to the user
         Mail::to($model->email)->send(new RegistrationRequest(compact('model', 'exist')));
+
+        // Responce 
         return View('auth/confirm')->with(compact('model', 'exist'));
         
     }

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('additionalMeta')
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+@endsection
+
 @section('content')
 
 	<div class="container">
@@ -31,6 +35,7 @@
 			</div>
 		</div>
 		<div class="clearfix"></div><br />
+		<a class="co-btn" href="/export/news/{{$news->id}}">Export PDF</a>
 		<a class="co-btn" href="/news">Back to news list</a>
 		<div class="clearfix"></div><br />
 	</div>

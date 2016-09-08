@@ -15,6 +15,7 @@
   border: none;
   -webkit-transition: all 280ms cubic-bezier(.4,0,.2,1);
   transition: all 280ms cubic-bezier(.4,0,.2,1);
+  margin-bottom: 18px;
 }
 .box:hover {
 	box-shadow: 0 10px 20px rgba(0,0,0,.19),0 6px 6px rgba(0,0,0,.23);
@@ -115,4 +116,9 @@ button.co-btn{
 .co-underline {
 	border-bottom: 1px solid #999;
 	padding-bottom: 5px;
+}
+
+.co-load-more-container {
+	text-align: center;
+	margin-bottom: 20px;
 }

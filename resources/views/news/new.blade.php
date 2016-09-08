@@ -3,7 +3,7 @@
 @section('content')
 
 	<div class="container">
-		@include('news/form')
+		@include('news/_form')
 	</div>
 
 @endsection
