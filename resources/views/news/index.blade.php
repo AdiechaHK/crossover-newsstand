@@ -5,7 +5,7 @@
 	<div class="container">
 		<div class="pull-right">
 			@if (Auth::check())
-				<a href="" class="co-btn">Create New!</a>
+				<a href="/news/create" class="co-btn">Create New!</a>
 			@endif
 		</div>
 

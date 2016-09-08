@@ -53,7 +53,7 @@ class NewsController extends Controller
             'image'   => $path,
             'user_id' => Auth::user()->id
         ]);
-        return redirect($request->path());
+        return redirect($request->path())->with('notification', 'Article created successfully.');
     }
 
     /**
