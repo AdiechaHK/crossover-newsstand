@@ -84,7 +84,7 @@ class NewsController extends Controller
             'image'   => $path
         ]);
 
-        return redirect($request->path())->with('notification', 'Article created successfully.');
+        return redirect('/my_news')->with('notification', 'Article created successfully.');
     }
 
     /**
@@ -95,7 +95,7 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        $top_news = News::where('id', '!=', $id)->orderBy('event_at', 'desc')->take(5)->get();
+        $top_news = News::where('id', '!=', $id)->where('publish', '=', 1)->orderBy('event_at', 'desc')->take(5)->get();
         return View("news/show")->with(['news' => News::find($id), 'top_news' => $top_news]);
     }
 
@@ -134,7 +134,7 @@ class NewsController extends Controller
     public function destroy(Request $request, $id)
     {
         News::destroy($id);
-        return redirect('/news')->with('notification', "Deleted successfully.");
+        return redirect('/my_news')->with('notification', "Deleted successfully.");
     }
 
 
@@ -151,7 +151,7 @@ class NewsController extends Controller
 
         News::where('id', $id)->update(['publish' => $toggle]);
 
-        return redirect('/');
+        return redirect('/my_news');
     }
 
     private function get_more_feeds($page = 0) 
@@ -160,7 +160,7 @@ class NewsController extends Controller
             ->orderBy('event_at', 'desc')
             ->skip($page*self::$PAGE_SIZE)
             ->take(self::$PAGE_SIZE)->get();
-            
+
         foreach ($list as $news) {
             $news['author'] = $news->publisher()->first();
         }

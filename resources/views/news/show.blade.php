@@ -8,6 +8,7 @@
 
 	<div class="container">
 		<h3><span class="co-underline">{{$news->title}}</span></h3>
+		<small class="co-date">{{ $news->event_at() }}</small>
 		<h5 class="sub-title-light">- {{ $news->publisher()->first()->name }}</h5>
 		<div class="clearfix"></div><br />
 		
