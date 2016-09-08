@@ -46,7 +46,10 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
+.co-date {
+	color: #999;
+	font-size: 14px;
+}
 /* Components */
 
 button.co-btn{

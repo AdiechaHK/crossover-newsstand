@@ -22,7 +22,8 @@
 					<div class="col-md-3">
 						<div class="box">
 							<img src="/{{ $news->image }}">
-							<h4 class="sub-title">{{ $news->title }}</h4>
+							<h4 class="sub-title">{{ $news->title }}<br /><small class="co-date">{{ Carbon\Carbon::parse($news->event_at)->format('d M, Y') }}</small>
+							</h4>
 							<div class="clearfix"></div>
 							- Published by {{$news->publisher()->first()->name}}
 							<p class="co-content">
