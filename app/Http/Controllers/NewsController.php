@@ -53,7 +53,7 @@ class NewsController extends Controller
             'image'   => $path,
             'user_id' => Auth::user()->id
         ]);
-        return redirect($request->path());
+        return redirect($request->path())->with('notification', 'Article created successfully.');
     }
 
     /**
@@ -64,7 +64,8 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        return View("news/show")->with(['news' => News::find($id)]);
+        $top_news = News::where('id', '!=', $id)->take(5)->get();
+        return View("news/show")->with(['news' => News::find($id), 'top_news' => $top_news]);
     }
 
     /**
@@ -96,8 +97,9 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        News::destroy($id);
+        return redirect('/news')->with('notification', "Deleted successfully.");
     }
 }
